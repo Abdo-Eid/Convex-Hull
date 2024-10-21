@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Convex Hull Demo</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        
+        <div class="container">
+            <h2>Convex Hull on Binary Images</h2>
+            <div id="structuring-elements" class="flex"></div>
+            <div id="grid" class="grid"></div>
+            <div class="controls">
+                <button id="start-button">Start Process</button>
+                <button id="next-button">Next Move</button>
+                <button id="random-button">Random Shape</button>
+                <button id="reset-button">Reset</button>
+            </div>
+            <div id="status">
+                <p>Iterations: <span id="iterations-count">0</span></p>
+            </div>
+        </div>
+        <div class="container">
+            <h2>Process</h2>
+            <ol>
+                <li>
+                    <strong>Start with the set A and a collection of structuring
+                        elements B<sup>i</sup>: </strong>
+                    that are designed for detecting specific patterns (e.g.,
+                    corners, shapes, etc.).
+                </li>
+
+                <li>
+                    <strong>For each structuring element B<sup>i</sup></strong>, the hit-or-miss
+                    transform is applied. The equation:
+                    <pre>
+    X<sub>k</sub><sup>i</sup> = (X<sub>k-1</sub><sup>i</sup> * B<sup>i</sup>) ∪ A
+                </pre>
+                </li>
+
+                <li>
+                    <strong>Iterate over k:</strong> The process iterates over k
+                    for each structuring element i, where:
+                    <ul>
+                        <li>X<sub>0</sub><sup>i</sup> = A (initial set),</li>
+                        <li>
+                            X<sub>k</sub><sup>i</sup> represents the result of
+                            applying the hit-or-miss transform iteratively.
+                        </li>
+                        <li>
+                            The iteration stops when X<sub>k</sub><sup>i</sup> =
+                            X<sub>k-1</sub><sup>i</sup> (i.e., no further
+                            changes).
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+
+            <h2>Sequence:</h2>
+            <ul>
+                <li>
+                    <strong>First</strong> iterate over each structuring element
+                    i.
+                </li>
+                <li>
+                    <strong>For each i</strong>, perform the hit-or-miss
+                    transform iteratively, increasing k, until the result
+                    stabilizes (when X<sub>k</sub><sup>i</sup> = X<sub>k-1</sub
+                    ><sup>i</sup>).
+                </li>
+            </ul>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+}
+
+#structuring-elements {
+    text-align: center;
+    margin-bottom: 15px;
+    & .grid {
+        display: inline-block;
+        border: 1px solid #333;
+        margin: 2px;
+    }
+
+    & .cell {
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    & .black {
+        background-color: black;
+    }
+
+    & .white {
+        background-color: white;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(10, 40px);
+    gap: 2px;
+    justify-content: center;
+}
+
+.grid div {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+}
+
+.bg-black {
+    background-color: black; /* Final color */
+}
+
+.bg-white {
+    background-color: white; /* Initial color */
+}
+
+.bg-gray {
+    background-color: rgb(67, 67, 67); /* Highlighted during last step */
+}
+
+.controls {
+    text-align: center;
+}
+
+button {
+    margin-right: 10px;
+}
+
+
